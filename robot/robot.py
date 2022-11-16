@@ -1,5 +1,20 @@
 class Robot():
+    """Class that defines a robotic vacuum cleaner.
+
+    With the width and length of the environment defined, the robot will follow the path defined in
+    the instructions.
+
+    Methods:
+        position(): A string indicating which direction the robot is pointing and its coordinates.
+    """
+
     def __init__(self, width: int, lenght: int, instructions: str) -> None:
+        """Inits Robot.
+
+        Inits Robot with the width and lenght limitations, the instructions to be followed,
+        pointing North and on the Cartesian plane origin (0, 0).
+
+        """
 
         self._width = width
         self._lenght = lenght
@@ -15,6 +30,19 @@ class Robot():
         self._action()
 
     def position(self) -> str:
+        """Returns robot position.
+
+        Retrieves which direction the robot is facing (North(N), West(O), South(S) or East(L)) and
+        its Cartesian plane coordinates.
+
+        Args:
+
+        Returns:
+            A string indicating the robot direction and its coordinates For example:
+
+            f'N 16 18'
+
+        """
         return f'{self._direction} {self._x_axis} {self._y_axis}'
 
     def _move(self, command: chr) -> None:
