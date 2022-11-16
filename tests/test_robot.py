@@ -1,6 +1,9 @@
+from robot.robot import Robot
+
+
 class TestRobot:
     """
-    Class that establish the test cases.
+    Class that defines the test cases.
     """
 
     def test_case_1(self):
@@ -11,7 +14,8 @@ class TestRobot:
         width, lenght = 10, 10
         instructions = 'FFFFFFFFFDFFFFFFFFFDFFFFFFFFFDFFFFFFFFF'
 
-        assert 'O 0 0'
+        robot = Robot(width, lenght, instructions)
+        assert robot.position() == 'O 0 0'
 
     def test_case_2(self):
         """
@@ -21,7 +25,8 @@ class TestRobot:
         width, lenght = 5, 5
         instructions = 'FDFEFDFEFDFEFDF'
 
-        assert 'L 4 4'
+        robot = Robot(width, lenght, instructions)
+        assert robot.position() == 'L 4 4'
 
     def test_case_3(self):
         """
@@ -31,7 +36,8 @@ class TestRobot:
         width, lenght = 1232, 1232
         instructions = 'TTTTTTTTTTTTT'
 
-        assert 'N 0 0'
+        robot = Robot(width, lenght, instructions)
+        assert robot.position() == 'N 0 0'
 
     def test_case_4(self):
         """
@@ -41,7 +47,8 @@ class TestRobot:
         width, lenght = 15, 36
         instructions = 'FFFFFFFFFFFFFFFFDFETTTTTTTTTTTTTTTT'
 
-        assert 'N 1 0'
+        robot = Robot(width, lenght, instructions)
+        assert robot.position() == 'N 1 0'
 
     def test_case_5(self):
         """
@@ -66,7 +73,8 @@ class TestRobot:
                         EDEFFDFTTFFTDTEDEDEDDFEFT
                         '''
 
-        assert 'S 11 13'
+        robot = Robot(width, lenght, instructions)
+        assert robot.position() == 'S 11 13'
 
     def test_case_6(self):
         """
@@ -91,4 +99,5 @@ class TestRobot:
                         TDEDTDDETEFEFEFFTTTEEFDEF
                         '''
 
-        assert 'L 25 5'
+        robot = Robot(width, lenght, instructions)
+        assert robot.position() == 'L 25 5'
