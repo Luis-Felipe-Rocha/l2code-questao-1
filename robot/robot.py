@@ -58,7 +58,7 @@ class Robot:
 
     def _action(self):
         for command in self._instructions:
-            if command == 'F' or command == 'T':
+            if command in ('F', 'T'):
                 self._move(command)
-            elif command == 'D' or command == 'E':
+            elif command in ('D', 'E'):
                 self._turn(command)
