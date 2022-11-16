@@ -2,6 +2,10 @@ class Robot:
     def __init__(self, width, lenght, instructions):
         self._width = width
         self._lenght = lenght
+
+        if lenght < 0 or width < 0:
+            raise ValueError("Can't create dimensions with negative numbers!")
+
         self._instructions = instructions
 
         self._x_axis = 0
