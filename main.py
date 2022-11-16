@@ -7,6 +7,8 @@ def main():
 
     robot = Robot(width, lenght, instructions)
 
+    print(robot.position())
+
 
 if __name__ == '__main__':
     main()
