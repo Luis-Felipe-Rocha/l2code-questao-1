@@ -1,3 +1,4 @@
+import pytest
 from robot.robot import Robot
 
 
@@ -101,3 +102,11 @@ class TestRobot:
 
         robot = Robot(width, lenght, instructions)
         assert robot.position() == 'L 25 5'
+
+    def test_case_width_with_negative_values_must_fail(self):
+        with pytest.raises(ValueError):
+            width, lenght = -10, 10
+            instructions = 'FFF'
+            robot = Robot(instructions=instructions,
+                          width=width, lenght=lenght)
+            assert robot.position()
