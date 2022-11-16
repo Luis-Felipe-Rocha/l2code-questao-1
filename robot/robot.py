@@ -1,5 +1,6 @@
-class Robot:
-    def __init__(self, width, lenght, instructions):
+class Robot():
+    def __init__(self, width: int, lenght: int, instructions: str) -> None:
+
         self._width = width
         self._lenght = lenght
 
@@ -7,17 +8,16 @@ class Robot:
             raise ValueError("Can't create dimensions with negative numbers!")
 
         self._instructions = instructions
-
-        self._x_axis = 0
-        self._y_axis = 0
-        self._direction = 'N'
+        self._x_axis: int = 0
+        self._y_axis: int = 0
+        self._direction: str = 'N'
 
         self._action()
 
-    def position(self):
+    def position(self) -> str:
         return f'{self._direction} {self._x_axis} {self._y_axis}'
 
-    def _move(self, command):
+    def _move(self, command: chr) -> None:
 
         if command == 'F':
             if self._direction == 'N' and self._y_axis != self._width:
@@ -39,7 +39,7 @@ class Robot:
             elif self._direction == 'L' and self._x_axis != 0:
                 self._x_axis -= 1
 
-    def _turn(self, command):
+    def _turn(self, command: chr) -> None:
         if command == 'D':
             if self._direction == 'N':
                 self._direction = 'L'
@@ -60,7 +60,7 @@ class Robot:
             elif self._direction == 'L':
                 self._direction = 'N'
 
-    def _action(self):
+    def _action(self) -> None:
         for command in self._instructions:
             if command in ('F', 'T'):
                 self._move(command)
