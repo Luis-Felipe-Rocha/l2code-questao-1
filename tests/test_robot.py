@@ -15,7 +15,7 @@ class TestRobot:
         width, lenght = 10, 10
         instructions = 'FFFFFFFFFDFFFFFFFFFDFFFFFFFFFDFFFFFFFFF'
 
-        robot = Robot(width, lenght, instructions)
+        robot = Robot(width=width, lenght=lenght, instructions=instructions)
         assert robot.position() == 'O 0 0'
 
     def test_case_2(self):
@@ -26,7 +26,7 @@ class TestRobot:
         width, lenght = 5, 5
         instructions = 'FDFEFDFEFDFEFDF'
 
-        robot = Robot(width, lenght, instructions)
+        robot = Robot(width=width, lenght=lenght, instructions=instructions)
         assert robot.position() == 'L 4 4'
 
     def test_case_3(self):
@@ -37,7 +37,7 @@ class TestRobot:
         width, lenght = 1232, 1232
         instructions = 'TTTTTTTTTTTTT'
 
-        robot = Robot(width, lenght, instructions)
+        robot = Robot(width=width, lenght=lenght, instructions=instructions)
         assert robot.position() == 'N 0 0'
 
     def test_case_4(self):
@@ -48,7 +48,7 @@ class TestRobot:
         width, lenght = 15, 36
         instructions = 'FFFFFFFFFFFFFFFFDFETTTTTTTTTTTTTTTT'
 
-        robot = Robot(width, lenght, instructions)
+        robot = Robot(width=width, lenght=lenght, instructions=instructions)
         assert robot.position() == 'N 1 0'
 
     def test_case_5(self):
@@ -74,7 +74,7 @@ class TestRobot:
                         EDEFFDFTTFFTDTEDEDEDDFEFT
                         '''
 
-        robot = Robot(width, lenght, instructions)
+        robot = Robot(width=width, lenght=lenght, instructions=instructions)
         assert robot.position() == 'S 11 13'
 
     def test_case_6(self):
@@ -100,13 +100,13 @@ class TestRobot:
                         TDEDTDDETEFEFEFFTTTEEFDEF
                         '''
 
-        robot = Robot(width, lenght, instructions)
+        robot = Robot(width=width, lenght=lenght, instructions=instructions)
         assert robot.position() == 'L 25 5'
 
     def test_case_width_with_negative_values_must_fail(self):
         with pytest.raises(ValueError):
             width, lenght = -10, 10
             instructions = 'FFF'
-            robot = Robot(instructions=instructions,
-                          width=width, lenght=lenght)
+            robot = Robot(width=width, lenght=lenght,
+                          instructions=instructions)
             assert robot.position()

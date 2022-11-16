@@ -5,7 +5,7 @@ def main():
     width, lenght = map(int, input().split())
     instructions = input()
 
-    robot = Robot(width, lenght, instructions)
+    robot = Robot(width=width, lenght=lenght, instructions=instructions)
 
     print(robot.position())
 
